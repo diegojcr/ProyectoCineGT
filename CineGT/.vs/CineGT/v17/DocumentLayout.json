@@ -1,0 +1,257 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\controllers\\funcioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\controllers\\funcioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\pelicula\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\pelicula\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\models\\pelicula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\models\\pelicula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\acceso\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\acceso\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\content\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\content\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\controllers\\peliculacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\controllers\\peliculacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\models\\funcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\models\\funcion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\funcion\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\funcion\\crear.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|c:\\users\\diego\\source\\repos\\pcinegt\\cinegt\\cinegt\\views\\home\\indexusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{55EBD9BC-DFA2-4467-8FD3-47B2A3D8AD30}|CineGT\\CineGT.csproj|solutionrelative:cinegt\\views\\home\\indexusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Funcion.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Funcion.cs",
+              "RelativeDocumentMoniker": "CineGT\\Models\\Funcion.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Funcion.cs",
+              "RelativeToolTip": "CineGT\\Models\\Funcion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T03:11:31.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABwAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T06:44:30.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Funcion\\Crear.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Funcion\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Funcion\\Crear.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Funcion\\Crear.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T09:26:26.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IndexUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Home\\IndexUsuario.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Home\\IndexUsuario.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Home\\IndexUsuario.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Home\\IndexUsuario.cshtml",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwBMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T06:22:50.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FuncionController.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\FuncionController.cs",
+              "RelativeDocumentMoniker": "CineGT\\Controllers\\FuncionController.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\FuncionController.cs",
+              "RelativeToolTip": "CineGT\\Controllers\\FuncionController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAowGcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T04:47:33.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Crear.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Pelicula\\Crear.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Pelicula\\Crear.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Pelicula\\Crear.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Pelicula\\Crear.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswCkAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-03T07:25:06.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pelicula.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Pelicula.cs",
+              "RelativeDocumentMoniker": "CineGT\\Models\\Pelicula.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Pelicula.cs",
+              "RelativeToolTip": "CineGT\\Models\\Pelicula.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T07:07:10.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Registrar.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Acceso\\Registrar.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Acceso\\Registrar.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Acceso\\Registrar.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Acceso\\Registrar.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-28T05:07:01.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CineGT\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CineGT\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T01:03:00.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.css",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Content\\Login.css",
+              "RelativeDocumentMoniker": "CineGT\\Content\\Login.css",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Content\\Login.css",
+              "RelativeToolTip": "CineGT\\Content\\Login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-12T21:30:49.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Acceso\\Login.cshtml",
+              "RelativeDocumentMoniker": "CineGT\\Views\\Acceso\\Login.cshtml",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Views\\Acceso\\Login.cshtml",
+              "RelativeToolTip": "CineGT\\Views\\Acceso\\Login.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-12T21:27:45.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccesoController.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\AccesoController.cs",
+              "RelativeDocumentMoniker": "CineGT\\Controllers\\AccesoController.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\AccesoController.cs",
+              "RelativeToolTip": "CineGT\\Controllers\\AccesoController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAswDYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T21:07:50.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PeliculaController.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\PeliculaController.cs",
+              "RelativeDocumentMoniker": "CineGT\\Controllers\\PeliculaController.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Controllers\\PeliculaController.cs",
+              "RelativeToolTip": "CineGT\\Controllers\\PeliculaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T07:10:39.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "CineGT\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\Models\\Usuario.cs",
+              "RelativeToolTip": "CineGT\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T21:05:01.179Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

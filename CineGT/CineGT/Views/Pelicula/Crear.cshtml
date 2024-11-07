@@ -1,0 +1,47 @@
+﻿
+@model CineGT.Models.Pelicula
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrar Pelicula</title></head>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/CineGT.styles.css" asp-append-version="true" />
+    <body>
+    <h2>Registrar Pelicula</h2>
+    <form asp-action="Crear" method="post">
+        <div class="form-group">
+            <label asp-for="Nombre">Nombre de la pelicula</label>
+            <input asp-for="Nombre" class="form-control"/>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duracion">Duracion de la pelicula</label>
+            <input asp-for="Duracion" type="time" class="form-control" />
+            <span asp-validation-for="Duracion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Clasificacion">Clasificacion</label>
+            <select asp-for="Clasificacion" class="form-control" asp-items="@(new SelectList(ViewBag.Clasificacion))">
+                <option value="">Seleccione un genero</option>
+            </select>
+            <span asp-validation-for="Clasificacion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion"></label>
+            <textarea asp-for="Descripcion" class="form-control"></textarea>
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+        @if (ViewData["CrearPMensaje"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewData["CrearPMensaje"]
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    </body>
+</html>
+
+
