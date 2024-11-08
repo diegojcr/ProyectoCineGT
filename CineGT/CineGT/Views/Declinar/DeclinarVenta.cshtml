@@ -1,0 +1,13 @@
+﻿@model CineGT.Models.Declinar
+
+<h2>Declinar Venta</h2>
+
+
+
+<form asp-action="DeclinarVenta" method="post">
+    <div class="form-group">
+        <label asp-for="NumeroFactura">Número de Factura:</label>
+        <input asp-for="NumeroFactura" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Declinar Venta</button>
+</form>

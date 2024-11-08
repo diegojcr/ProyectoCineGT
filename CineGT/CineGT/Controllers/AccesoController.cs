@@ -21,19 +21,14 @@ namespace CineGT.Controllers
         [HttpPost]
         public IActionResult Registrar(Usuario oUsuario)
         {
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=CineGT;Integrated Security=True";
+            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
             int cliente = 1;
             
-            if(oUsuario.Clave == oUsuario.ConfirmarClave)
-            {
-                oUsuario.Clave = ConvertirSha256(oUsuario.Clave);
-            }
-            else
+            if(oUsuario.Clave != oUsuario.ConfirmarClave)
             {
                 ViewData["Mensaje"] = "Las contraseñas no coinciden";
                 return View();
             }
-
             try
             {
                 using (SqlConnection cn = new SqlConnection(cadena))
@@ -44,6 +39,8 @@ namespace CineGT.Controllers
                         cmd.Parameters.AddWithValue("Numero", oUsuario.Numero);
                         cmd.Parameters.AddWithValue("Correo", oUsuario.Correo);
                         cmd.Parameters.AddWithValue("Password", oUsuario.Clave);
+                        cmd.Parameters.AddWithValue("Nombre", oUsuario.Nombre);
+                        cmd.Parameters.AddWithValue("Apellido", oUsuario.Apellido);
                         cmd.Parameters.AddWithValue("TIPO_USUARIO", cliente);
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -76,8 +73,8 @@ namespace CineGT.Controllers
         {
             string user = oUsuario.User;
             string clave = oUsuario.Clave;
-            string connectionString = $"Server=DIEGO\\SQLEXPRESS;Database=CineGT;User Id={user};Password={clave};";
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=CineGT;Integrated Security=True";
+            string connectionString = $"Server=DIEGO\\SQLEXPRESS;Database=PROYECTO_CINEGT;User Id={user};Password={clave};";
+            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
             if (oUsuario.IdTipoUsuario == true)
             {
                 try
@@ -96,7 +93,7 @@ namespace CineGT.Controllers
                 }
             } else
             {
-                clave = ConvertirSha256(clave);
+                //clave = ConvertirSha256(clave);
 
                 using (SqlConnection cn = new SqlConnection(cadena))
                 {

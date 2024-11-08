@@ -1,7 +1,9 @@
 ﻿using CineGT.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace CineGT.Controllers
 {
@@ -15,7 +17,7 @@ namespace CineGT.Controllers
         public IActionResult Crear()
         {
             List<SelectListItem> peliculas = new List<SelectListItem>();
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=CineGT;Integrated Security=True";
+            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(cadena))
             {
@@ -41,7 +43,7 @@ namespace CineGT.Controllers
         [HttpPost]
         public IActionResult Crear(Funcion funcion)
         {
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=CineGT;Integrated Security=True";
+            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
             
             try
             {
@@ -94,41 +96,45 @@ namespace CineGT.Controllers
         }
 
         [HttpPost]
-        public IActionResult CargarSesiones(IFormFile formFile, bool revertirSiHayErrores)
+        public IActionResult CargarSesiones(IFormFile fileUpload, bool opcionCarga)
         {
-            if (formFile == null || formFile.Length == 0)
+            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
+            if (fileUpload != null && fileUpload.Length > 0)
             {
-                ModelState.AddModelError("","El archivo CSV es requerido.");
-                return View();
-            }
-            return View();
-            List<Funcion> nuevasFunciones = new List<Funcion>();
-            List<string> errores = new List<string>();
+                var filePath = Path.GetTempFileName(); // Genera un archivo temporal
 
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=CineGT;Integrated Security=True";
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    fileUpload.CopyTo(stream);
+                }
 
-            using(var reader = new StreamReader(formFile.OpenReadStream()))
-            {
-                string linea;
-                while ((linea = reader.ReadLine()) != null) {
-                    var datos = linea.Split(',');
+                string mensajeError = string.Empty;
 
-                    try
+                // Aquí llamas a tu procedimiento almacenado
+                using (var connection = new SqlConnection(cadena))
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand("spImportarSesionDesdeCSV", connection))
                     {
-                        var funcion = new Funcion
-                        {
-                            FechaInicio = DateTime.Parse(datos[0]),
-                            Precio = double.Parse(datos[1]),
-                            Id_Sala = int.Parse(datos[2]),
-                            Id_Pelicula = datos[3],
-                            Id_Estado_F = int.Parse(datos[4])
-                        };
-                    }catch (Exception)
-                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@FilePath", filePath);
+                        command.Parameters.AddWithValue("@IgnoreErrors", opcionCarga);
+                        command.Parameters.Add("@mensajeError", SqlDbType.NVarChar, -1).Direction = ParameterDirection.Output;
 
+                        command.ExecuteNonQuery();
+
+                        mensajeError = command.Parameters["@mensajeError"].Value.ToString();
                     }
                 }
+
+                // Borra el archivo temporal
+                System.IO.File.Delete(filePath);
+
+                return View();
             }
+
+            return View();
         }
+
     }
 }

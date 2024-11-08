@@ -41,10 +41,26 @@
             <select asp-for="Id_Estado_F" class="form-control">
                 <option value="1">Activa</option>
                 <option value="2">Inactiva</option>
+                <option value="3">Iniciada</option>
+                <option value="4">Terminada</option>
             </select>
             <span asp-validation-for="Id_Estado_F" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+    <h3>O si quieres subir varias funciones mediante un archivo CSV</h3>
+    <form asp-action="CargarSesiones" enctype="multipart/form-data" method="post">
+        <input type="file" id="fileUpload" name="fileUpload" accept=".csv" required />
+        <div>
+            <input type="radio" id="ingresarSinErrores" name="opcionCarga" value="true" checked>
+            <label for="ingresarSinErrores">Ingresar solo sesiones sin errores</label>
+        </div>
+        <div>
+            <input type="radio" id="rollbackTodo" name="opcionCarga" value="false">
+            <label for="rollbackTodo">Hacer rollback de todas las sesiones si hay errores</label>
+        </div>
+        <button type="submit">Subir CSV</button>
+    </form>
+
     </body>
 </html>

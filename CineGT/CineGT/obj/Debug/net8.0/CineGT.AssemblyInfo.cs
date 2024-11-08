@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CineGT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17c2973fb29f7873ec5dcc4dad782488a0406c46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ca7e6e44ee762368d349b1325c3516bf2819301")]
 [assembly: System.Reflection.AssemblyProductAttribute("CineGT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CineGT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

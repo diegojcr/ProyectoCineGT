@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\CineGT.csproj": {}
+    "C:\\Users\\diego\\OneDrive - Universidad Rafael Landivar\\Escritorio\\ProyectoCineGT\\CineGT\\CineGT\\CineGT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\CineGT.csproj": {
+    "C:\\Users\\diego\\OneDrive - Universidad Rafael Landivar\\Escritorio\\ProyectoCineGT\\CineGT\\CineGT\\CineGT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\CineGT.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\OneDrive - Universidad Rafael Landivar\\Escritorio\\ProyectoCineGT\\CineGT\\CineGT\\CineGT.csproj",
         "projectName": "CineGT",
-        "projectPath": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\CineGT.csproj",
+        "projectPath": "C:\\Users\\diego\\OneDrive - Universidad Rafael Landivar\\Escritorio\\ProyectoCineGT\\CineGT\\CineGT\\CineGT.csproj",
         "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diego\\source\\repos\\PCineGT\\CineGT\\CineGT\\obj\\",
+        "outputPath": "C:\\Users\\diego\\OneDrive - Universidad Rafael Landivar\\Escritorio\\ProyectoCineGT\\CineGT\\CineGT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\diego\\AppData\\Roaming\\NuGet\\NuGet.Config",

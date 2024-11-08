@@ -1,0 +1,204 @@
+﻿@model Boleto
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selección de Asientos</title>
+    <style>
+        #asientosContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .filaContainer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .filaLabel {
+            margin-right: 10px;
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: red;
+        }
+
+        .fila {
+            display: flex;
+            gap: 10px;
+        }
+
+        .asiento {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Verde para asientos disponibles */
+            color: white;
+        }
+
+            .asiento.seleccionado {
+                background-color: #FFA500; /* Naranja para asientos seleccionados */
+            }
+
+            .asiento.ocupado {
+                background-color: #FF0000; /* Rojo para asientos ocupados */
+                cursor: not-allowed;
+            }
+
+        #pantalla {
+            margin-top: 20px;
+            width: 20%;
+            padding: 10px;
+            background-color: gray;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compra tus Asientos</h1>
+
+    <div id="asientosContainer"></div>
+    <div id="pantalla">Pantalla</div>
+
+    <!-- Formulario de reserva -->
+    <form asp-action="ProcesarCompraBoletos" method="post" id="reservaForm">
+        <div>
+            <label for="Pelicula">Película:</label>
+            <select asp-for="Pelicula" class="form-control" asp-items="ViewBag.Pelicula">
+                <option value="">Seleccione una pelicula</option>
+            </select>
+        </div>
+        <div>
+            <label for="FechaFuncion">Fecha de la Función:</label>
+            <input asp-for="FechaFuncion" type="datetime-local" class="form-control" required/>
+        </div>
+        <div>
+            <label for="Sala">Sala:</label>
+            <select asp-for="Sala" class="form-control">
+                <option value="1">Sala 1</option>
+                <option value="2">Sala 2</option>
+                <option value="3">Sala 3</option>
+                <option value="4">Sala 4</option>
+                <option value="5">Sala 5</option>
+            </select>
+            <span asp-validation-for="Sala" class="text-danger"></span>
+        </div>
+        <div>
+            <label for="NumeroBoletos">Número de Boletos:</label>
+            <input asp-for="NumeroBoletos" type="number" class="form-control" required />
+        </div>
+        <div>
+            <label for="TipoPago">Tipo de Pago:</label>
+            <select asp-for="TipoPago" class="form-control">
+                <option value="1">Efectivo</option>
+                <option value="2">Tarjeta</option>
+            </select>
+            <span asp-validation-for="TipoPago" class="text-danger"></span>
+        </div>
+        <div>
+            <label for="ClienteId">ID Cliente:</label>
+            <input asp-for="ClienteId" type="text" class="form-control"/>
+        </div>
+        <div>
+            <label for="VendedorId">ID Vendedor:</label>
+            <input asp-for="VendedorId" type="text" class="form-control"/>
+        </div>
+        <div>
+            <label for="EstadoCompra">Estado:</label>
+            <input asp-for="EstadoCompra" type="number" id="EstadoCompra" value="1" placeholder="1" readonly />
+        </div>
+
+        <!-- Campo oculto para almacenar los asientos seleccionados -->
+        <input type="hidden" id="AsientosSeleccionados" name="AsientosSeleccionados" />
+
+        <button type="submit" onclick="reservarAsientos()">Reservar Asientos</button>
+    </form>
+
+    <script>
+        // Generar asientos (ejemplo: filas A-E, números 1-6)
+        const filas = ['A', 'B', 'C', 'D', 'E'];
+        const asientosContainer = document.getElementById('asientosContainer');
+        let AsientosSeleccionados = [];
+
+        filas.forEach(fila => {
+            // Crear contenedor de cada fila
+            const filaContainer = document.createElement('div');
+            filaContainer.classList.add('filaContainer');
+
+            // Crear label para el lado izquierdo
+            const leftLabel = document.createElement('div');
+            leftLabel.classList.add('filaLabel');
+            leftLabel.innerText = fila;
+            filaContainer.appendChild(leftLabel);
+
+            // Crear los asientos
+            const filaAsientos = document.createElement('div');
+            filaAsientos.classList.add('fila');
+
+            for (let i = 1; i <= 6; i++) {
+                const asiento = document.createElement('div');
+                asiento.classList.add('asiento');
+                asiento.id = `${fila}${i}`;
+                asiento.innerText = i;
+                asiento.onclick = function () { seleccionarAsiento(asiento); };
+                filaAsientos.appendChild(asiento);
+            }
+
+            filaContainer.appendChild(filaAsientos);
+
+            // Crear label para el lado derecho
+            const rightLabel = document.createElement('div');
+            rightLabel.classList.add('filaLabel');
+            rightLabel.innerText = fila;
+            filaContainer.appendChild(rightLabel);
+
+            asientosContainer.appendChild(filaContainer);
+        });
+
+        function seleccionarAsiento(asiento) {
+            if (asiento.classList.contains('ocupado')) return;
+
+            asiento.classList.toggle('seleccionado');
+            const asientoId = asiento.id;
+
+            if (AsientosSeleccionados.includes(asientoId)) {
+                AsientosSeleccionados = AsientosSeleccionados.filter(id => id !== asientoId);
+            } else {
+                AsientosSeleccionados.push(asientoId);
+            }
+        }
+
+        function reservarAsientos() {
+            const form = document.getElementById("reservaForm");
+
+            // Agrega los datos de los asientos seleccionados al formulario como JSON
+            const asientosJson = JSON.stringify(AsientosSeleccionados.map(id => {
+                const fila = id.charAt(0);
+                const columna = id.charAt(1);
+                return { Fila: fila, Columna: columna };
+            }));
+
+            // Crear un campo oculto para los asientos seleccionados
+            const asientosInput = document.createElement("input");
+            asientosInput.type = "hidden";
+            asientosInput.name = "AsientosSeleccionadosJson"; // Nombre que el controlador recibirá
+            asientosInput.value = asientosJson;
+            form.appendChild(asientosInput);
+
+            form.submit();
+        }
+    </script>
+
+</body>
+</html>
