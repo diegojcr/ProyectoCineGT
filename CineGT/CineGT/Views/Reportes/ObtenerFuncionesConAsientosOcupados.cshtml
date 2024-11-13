@@ -1,0 +1,58 @@
+﻿@model CineGT.Models.ObtenerFuncionesConAsientosOcupados
+
+<h2>Reporte de Funciones con Asientos Ocupados</h2>
+
+@using (Html.BeginForm("ObtenerFuncionesConAsientosOcupados", "Reportes", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="fechaInicio">Fecha Inicio:</label>
+        <input type="date" id="Fecha_Inicio_Funcion" name="Fecha_Inicio_Funcion" class="form-control" value="@Model.Fecha_Inicio_Funcion" required />
+    </div>
+    <div class="form-group">
+        <label for="fechaFin">Fecha Fin:</label>
+        <input type="date" id="Fecha_Fin_Funcion" name="Fecha_Fin_Funcion" class="form-control" value="@Model.Fecha_Fin_Funcion" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Obtener Reporte</button>
+}
+
+<hr />
+
+@if (Model.ReporteFunciones != null && Model.ReporteFunciones.Any())
+{
+    <h3>Resultados del Reporte</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Función</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Precio</th>
+                <th>ID Sala</th>
+                <th>Disponibilidad</th>
+                <th>Nombre Película</th>
+                <th>Clasificación</th>
+                <th>Asientos Ocupados</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ReporteFunciones)
+            {
+                <tr>
+                    <td>@item.Id_Funcion</td>
+                    <td>@item.Fecha_Inicio_Funcion.ToString("g")</td>
+                    <td>@item.Fecha_Fin_Funcion.ToString("g")</td>
+                    <td>@item.Precio_Funcion</td>
+                    <td>@item.Id_Sala</td>
+                    <td>@item.Disponibilidad</td>
+                    <td>@item.Nombre_Pelicula</td>
+                    <td>@item.Clasificacion_Pelicula</td>
+                    <td>@item.Asientos_Ocupados</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.ReporteFunciones != null)
+{
+    <p>No se encontraron resultados para las fechas seleccionadas.</p>
+}

@@ -1,9 +1,9 @@
 ﻿namespace CineGT.Models
 {
-    public class TopPeliculaPorAsientosVendidos
+    public class Top5PeliculasViewModel
     {
-        public string Nombre_Pelicula { get; set; }
         public int Id_Pelicula { get; set; }
+        public string Nombre_Pelicula { get; set; }
         public decimal Promedio_Asientos_Vendidos { get; set; }
     }
 }

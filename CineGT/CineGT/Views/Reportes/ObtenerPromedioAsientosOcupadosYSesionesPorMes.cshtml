@@ -1,0 +1,51 @@
+﻿@model CineGT.Models.ReportePromedioAsientosConSalaViewModel
+
+<h2>Promedio de asientos ocupados y cantidad de sesiones por Mes</h2>
+
+@using (Html.BeginForm("ObtenerPromedioAsientosOcupadosYSesionesPorMes", "Reportes", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="idSala">ID de la Sala:</label>
+        <select asp-for="Id_Sala" class="form-control">
+            <option value="1">Sala 1</option>
+            <option value="2">Sala 2</option>
+            <option value="3">Sala 3</option>
+            <option value="4">Sala 4</option>
+            <option value="5">Sala 5</option>
+        </select>
+        <span asp-validation-for="Id_Sala" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Obtener Reporte</button>
+}
+
+<hr />
+
+@if (Model.ReportePromedioAsientos != null && Model.ReportePromedioAsientos.Any())
+{
+    <h3>Resultados del Reporte</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mes</th>
+                <th>Año</th>
+                <th>Cantidad de Sesiones</th>
+                <th>Promedio de Asientos Ocupados</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ReportePromedioAsientos)
+            {
+                <tr>
+                    <td>@item.Mes</td>
+                    <td>@item.Año</td>
+                    <td>@item.Cantidad_Sesiones</td>
+                    <td>@item.Promedio_Asientos_Ocupados</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.ReportePromedioAsientos != null)
+{
+    <p>No se encontraron resultados para el ID de sala ingresado.</p>
+}

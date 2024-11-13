@@ -1,0 +1,52 @@
+﻿@model CineGT.Models.ReporteOcupacionConPorcentajeViewModel
+
+<h2>Sesiones con Asientos ocupados por debajo del porcentaje limite</h2>
+
+@using (Html.BeginForm("ObtenerSesionesConAsientosOcupadosPorDebajoDelPorcentaje", "Reportes", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="porcentajeLimite">Porcentaje Límite:</label>
+        <input type="number" id="porcentajeLimite" name="PorcentajeLimite" class="form-control" step="0.01" value="@Model.PorcentajeLimite" required min="0" max="100" />
+    </div>
+    <button type="submit" class="btn btn-primary">Obtener Reporte</button>
+}
+
+<hr />
+
+@if (Model.ReporteOcupacion != null && Model.ReporteOcupacion.Any())
+{
+    <h3>Resultados del Reporte</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Función</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Precio</th>
+                <th>ID Sala</th>
+                <th>Disponibilidad</th>
+                <th>Asientos Ocupados</th>
+                <th>Porcentaje Ocupación</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ReporteOcupacion)
+            {
+                <tr>
+                    <td>@item.Id_Funcion</td>
+                    <td>@item.Fecha_Inicio_Funcion</td>
+                    <td>@item.Fecha_Fin_Funcion</td>
+                    <td>@item.Precio_Funcion</td>
+                    <td>@item.Id_Sala</td>
+                    <td>@item.Disponibilidad</td>
+                    <td>@item.Asientos_Ocupados</td>
+                    <td>@item.Porcentaje_Ocupacion %</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.ReporteOcupacion != null)
+{
+    <p>No se encontraron resultados para el porcentaje límite ingresado.</p>
+}

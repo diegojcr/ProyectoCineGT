@@ -22,7 +22,6 @@ namespace CineGT.Controllers
         public IActionResult Registrar(Usuario oUsuario)
         {
             string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
-            int cliente = 1;
             
             if(oUsuario.Clave != oUsuario.ConfirmarClave)
             {
@@ -41,7 +40,7 @@ namespace CineGT.Controllers
                         cmd.Parameters.AddWithValue("Password", oUsuario.Clave);
                         cmd.Parameters.AddWithValue("Nombre", oUsuario.Nombre);
                         cmd.Parameters.AddWithValue("Apellido", oUsuario.Apellido);
-                        cmd.Parameters.AddWithValue("TIPO_USUARIO", cliente);
+                        cmd.Parameters.AddWithValue("TIPO_USUARIO", oUsuario.TipoUsuario);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cn.Open();

@@ -55,10 +55,11 @@ namespace CineGT.Controllers
                     cmd.Parameters.AddWithValue("sala", funcion.Id_Sala);
                     cmd.Parameters.AddWithValue("pelicula", funcion.Id_Pelicula);
                     cmd.Parameters.AddWithValue("estado", funcion.Id_Estado_F);
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     con.Open();
                     cmd.ExecuteNonQuery();
+                    return RedirectToAction("Crear", "Funcion");
                 }
             }catch(SqlException ex)
             {

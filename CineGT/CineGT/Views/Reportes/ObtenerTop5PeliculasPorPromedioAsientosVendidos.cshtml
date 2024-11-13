@@ -1,0 +1,30 @@
+﻿@model List<CineGT.Models.Top5PeliculasViewModel>
+
+<h2>Top 5 Películas por Promedio de Asientos Vendidos</h2>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre de la Película</th>
+                <th>ID Película</th>
+                <th>Promedio de Asientos Vendidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre_Pelicula</td>
+                    <td>@item.Id_Pelicula</td>
+                    <td>@item.Promedio_Asientos_Vendidos</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron resultados para el reporte.</p>
+}

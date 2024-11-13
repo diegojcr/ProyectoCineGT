@@ -59,6 +59,17 @@
             <input type="radio" id="rollbackTodo" name="opcionCarga" value="false">
             <label for="rollbackTodo">Hacer rollback de todas las sesiones si hay errores</label>
         </div>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
         <button type="submit">Subir CSV</button>
     </form>
 
