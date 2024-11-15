@@ -363,6 +363,67 @@ namespace CineGT.Controllers
             return View(modelo);
         }
 
+        [HttpGet]
+        public ActionResult ObtenerLogSesiones()
+        {
+            var modelo = new LogSesionesModel();
+            return View(modelo);
+        }
+
+        // Acción para procesar el formulario y mostrar el reporte
+        [HttpPost]
+        public ActionResult ObtenerLogSesiones(LogSesionesModel modelo)
+        {
+            if (modelo.FechaInicio != null && modelo.FechaFin != null)
+            {
+                // Llamar al procedimiento almacenado para obtener el reporte
+                using (SqlConnection con = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_ObtenerLogSesionesPorFecha", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@FechaInicio", modelo.FechaInicio);
+                        cmd.Parameters.AddWithValue("@FechaFin", modelo.FechaFin);
+
+                        con.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<LogSesionInfo> logSesiones = new List<LogSesionInfo>();
+
+                            while (reader.Read())
+                            {
+                                var logSesion = new LogSesionInfo
+                                {
+                                    IdLogSesion = Convert.ToInt32(reader["Id_Log_S"]),
+                                    DescripcionLog = reader["Descripcion_Log"].ToString(),
+                                    FechaLog = Convert.ToDateTime(reader["Fecha_Log"]),
+                                    IdUsuarioLog = Convert.ToInt32(reader["Id_Usuario_Log"]),
+                                    IdPelicula = Convert.ToInt32(reader["Id_Pelicula"]),
+                                    NombrePelicula = reader["Nombre_Pelicula"].ToString(),
+                                    DuracionPelicula = reader["Duracion_Pelicula"].ToString(),
+                                    ClasificacionPelicula = reader["Clasificacion_Pelicula"].ToString(),
+                                    DescripcionPelicula = reader["Descripcion_Pelicula"].ToString(),
+                                    IdFuncion = Convert.ToInt32(reader["Id_Función"]),
+                                    FechaInicioFuncion = Convert.ToDateTime(reader["Fecha_Inicio_Funcion"]),
+                                    FechaFinFuncion = Convert.ToDateTime(reader["Fecha_Fin_Funcion"]),
+                                    PrecioFuncion = Convert.ToDecimal(reader["Precio_Funcion"]),
+                                    SalaFuncion = Convert.ToInt32(reader["Sala_Funcion"]),
+                                    EstadoFuncion = Convert.ToInt32(reader["Estado_Funcion"]),
+                                    DisponibilidadFuncion = Convert.ToInt32(reader["Disponibilidad_Funcion"]),
+                                    CapacidadSala = Convert.ToInt32(reader["Capacidad_Sala"])
+                                };
+                                logSesiones.Add(logSesion);
+                            }
+
+                            modelo.LogSesiones = logSesiones;
+                        }
+                    }
+                }
+            }
+
+            return View(modelo);
+        }
+
 
     }
     }
