@@ -100,6 +100,11 @@ namespace CineGT.Controllers
         public IActionResult CargarSesiones(IFormFile fileUpload, bool opcionCarga)
         {
             string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
+            int bit = 0;
+            if(opcionCarga == true)
+            {
+                bit = 1;
+            }
             if (fileUpload != null && fileUpload.Length > 0)
             {
                 var filePath = Path.GetTempFileName(); // Genera un archivo temporal
@@ -111,7 +116,6 @@ namespace CineGT.Controllers
 
                 string mensajeError = string.Empty;
 
-                // Aquí llamas a tu procedimiento almacenado
                 using (var connection = new SqlConnection(cadena))
                 {
                     connection.Open();
@@ -119,7 +123,7 @@ namespace CineGT.Controllers
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@FilePath", filePath);
-                        command.Parameters.AddWithValue("@IgnoreErrors", opcionCarga);
+                        command.Parameters.AddWithValue("@IgnoreErrors", bit);
                         command.Parameters.Add("@mensajeError", SqlDbType.NVarChar, -1).Direction = ParameterDirection.Output;
 
                         command.ExecuteNonQuery();

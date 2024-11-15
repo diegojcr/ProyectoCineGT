@@ -234,5 +234,135 @@ namespace CineGT.Controllers
             return View(modelo);
         }
 
+        [HttpGet]
+        public ActionResult TransaccionesPorFecha()
+        {
+            // Inicializar el modelo para la primera carga de la vista
+            var modelo = new ReporteTransaccionesConFechasViewModel
+            {
+                FechaInicio = DateTime.Today,
+                FechaFin = DateTime.Today,
+                ReporteTransacciones = new List<ReporteTransaccionesPorFecha>()
+            };
+
+            return View(modelo);
+        }
+
+        [HttpPost]
+        public ActionResult TransaccionesPorFecha(ReporteTransaccionesConFechasViewModel modelo)
+        {
+            // Validar que las fechas sean correctas
+            if (modelo.FechaInicio > modelo.FechaFin)
+            {
+                ModelState.AddModelError("", "La fecha de inicio no puede ser mayor que la fecha de fin.");
+                return View(modelo);
+            }
+
+            modelo.ReporteTransacciones = new List<ReporteTransaccionesPorFecha>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(cadena))
+                {
+                    using (SqlCommand command = new SqlCommand("ConsultarTransaccionesPorFecha", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@FechaInicio", modelo.FechaInicio);
+                        command.Parameters.AddWithValue("@FechaFin", modelo.FechaFin);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var reporte = new ReporteTransaccionesPorFecha
+                                {
+                                    FechaTransaccion = Convert.ToDateTime(reader["Fecha_Transaccion"]),
+                                    DescripcionTransaccion = reader["Descripcion_Transaccion"].ToString(),
+                                    IdUsuarioTransaccion = Convert.ToInt32(reader["Id_Usuario_Transaccion"]),
+                                    IdCompra = reader["Id_Compra"] != DBNull.Value ? Convert.ToInt32(reader["Id_Compra"]) : (int?)null,
+                                    NumeroFactura = reader["NumeroFactura"]?.ToString(),
+                                    MontoTotal = reader["MontoTotal"] != DBNull.Value ? Convert.ToDecimal(reader["MontoTotal"]) : (decimal?)null,
+                                    IdCliente = reader["Id_Cliente"] != DBNull.Value ? Convert.ToInt32(reader["Id_Cliente"]) : (int?)null,
+                                    EstadoCompra = reader["Estado_Compra"]?.ToString(),
+                                    TotalBoletos = reader["TOTAL_BOLETOS"] != DBNull.Value ? Convert.ToInt32(reader["TOTAL_BOLETOS"]) : (int?)null,
+                                    FechaFuncion = reader["Fecha_Funcion"] != DBNull.Value ? Convert.ToDateTime(reader["Fecha_Funcion"]) : (DateTime?)null,
+                                    NombrePelicula = reader["Nombre_Pelicula"]?.ToString(),
+                                    PrecioFuncion = reader["Precio_Funcion"] != DBNull.Value ? Convert.ToDecimal(reader["Precio_Funcion"]) : (decimal?)null
+                                };
+
+                                modelo.ReporteTransacciones.Add(reporte);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Error al obtener el reporte: {ex.Message}");
+            }
+
+            return View(modelo);
+        }
+
+        [HttpGet]
+        public ActionResult ObtenerReporte()
+        {
+            var modelo = new ReporteComprasModel();
+            return View(modelo);
+        }
+
+        // Acción para procesar el formulario y mostrar el reporte
+        [HttpPost]
+        public ActionResult ObtenerReporte(ReporteComprasModel modelo)
+        {
+            if (modelo.FechaInicio != null && modelo.FechaFin != null)
+            {
+                // Llamar al procedimiento almacenado para obtener el reporte
+                using (SqlConnection con = new SqlConnection(cadena))
+                {
+                    using (SqlCommand cmd = new SqlCommand("ObtenerReporteCompras", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@FechaInicio", modelo.FechaInicio);
+                        cmd.Parameters.AddWithValue("@FechaFin", modelo.FechaFin);
+
+                        con.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<ReporteCompraInfo> reporte = new List<ReporteCompraInfo>();
+
+                            while (reader.Read())
+                            {
+                                var compra = new ReporteCompraInfo
+                                {
+                                    NumeroFactura = reader["NumeroFactura"].ToString(),
+                                    MontoTotal = Convert.ToDecimal(reader["MontoTotal"]),
+                                    FechaCompra = Convert.ToDateTime(reader["Fecha_Compra"]),
+                                    IdSala = Convert.ToInt32(reader["Id_Sala"]),
+                                    PrecioUnitario = Convert.ToDecimal(reader["precio_unitario"]),
+                                    FechaInicioFuncion = Convert.ToDateTime(reader["Fecha_Inicio"]),
+                                    FechaFinFuncion = Convert.ToDateTime(reader["Fecha_Fin"]),
+                                    AsientosOcupados = Convert.ToInt32(reader["Asientos ocupados"]),
+                                    EstadoFuncion = reader["Estado_Funcion"].ToString(),
+                                    NombrePelicula = reader["Nombre_Pelicula"].ToString(),
+                                    DescripcionPelicula = reader["Descripcion_Pelicula"].ToString(),
+                                    Clasificacion = reader["Clasificación"].ToString(),
+                                    TipoSala = reader["Tipo_Sala"].ToString(),
+                                    CapacidadSala = Convert.ToInt32(reader["Capacidad Maxima de la sala"])
+                                };
+                                reporte.Add(compra);
+                            }
+
+                            modelo.ReporteCompras = reporte;
+                        }
+                    }
+                }
+            }
+
+            return View(modelo);
+        }
+
+
     }
-}
+    }

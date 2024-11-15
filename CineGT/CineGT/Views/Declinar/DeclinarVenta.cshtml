@@ -11,3 +11,9 @@
     </div>
     <button type="submit" class="btn btn-primary">Declinar Venta</button>
 </form>
+@if (!string.IsNullOrEmpty(Model.Mensaje))
+{
+    <div class="alert alert-info mt-3">
+        @Model.Mensaje
+    </div>
+}

@@ -7,38 +7,53 @@ namespace CineGT.Controllers
 {
     public class DeclinarController : Controller
     {
+        public string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
         public IActionResult DeclinarVenta()
         {
-            return View();
+            return View(new Declinar());
         }
+      
         [HttpPost]
-        public IActionResult DeclinarVenta(Declinar model)
+        public ActionResult DeclinarVenta(Declinar model)
         {
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
-
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     using (SqlConnection connection = new SqlConnection(cadena))
                     {
-                        connection.Open();
                         using (SqlCommand command = new SqlCommand("DECLINAR_VENTA", connection))
                         {
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("@FACTURA", model.NumeroFactura);
 
+                            connection.Open();
                             command.ExecuteNonQuery();
+
+                            // Si no hubo error, mostramos un mensaje de éxito
+                            model.Mensaje = "Venta declinada exitosamente.";
                         }
                     }
-                    model.Mensaje = "Venta declinada exitosamente.";
                 }
                 catch (SqlException ex)
                 {
-                    model.Mensaje = "Error al declinar la venta: " + ex.Message;
+                    // Capturamos errores de SQL Server y mostramos el mensaje
+                    if (ex.Number == 50000) // Error de RAISERROR
+                    {
+                        model.Mensaje = "Error al declinar venta: " + ex.Message;
+                    }
+                    else
+                    {
+                        model.Mensaje = "Ocurrió un error al procesar la solicitud: " + ex.Message;
+                    }
                 }
-            }
-            return View();
+                catch (Exception ex)
+                {
+                    model.Mensaje = "Ocurrió un error inesperado: " + ex.Message;
+                }
+            
+            
+
+            return View(model);
         }
     }
 }

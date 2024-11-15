@@ -21,7 +21,7 @@ namespace CineGT.Controllers
         [HttpPost]
         public IActionResult Registrar(Usuario oUsuario)
         {
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
+            string cadena = "Data Source=192.168.1.10;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
             
             if(oUsuario.Clave != oUsuario.ConfirmarClave)
             {
@@ -72,8 +72,8 @@ namespace CineGT.Controllers
         {
             string user = oUsuario.User;
             string clave = oUsuario.Clave;
-            string connectionString = $"Server=DIEGO\\SQLEXPRESS;Database=PROYECTO_CINEGT;User Id={user};Password={clave};";
-            string cadena = "Data Source=DIEGO\\SQLEXPRESS;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
+            string connectionString = $"Server=192.168.1.10;Database=PROYECTO_CINEGT;User Id={user};Password={clave};";
+            string cadena = "Data Source=192.168.1.10;Initial Catalog=PROYECTO_CINEGT;Integrated Security=True";
             if (oUsuario.IdTipoUsuario == true)
             {
                 try

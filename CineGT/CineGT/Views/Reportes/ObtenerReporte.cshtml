@@ -1,0 +1,72 @@
+﻿@model CineGT.Models.ReporteComprasModel
+
+
+
+<h2>Reporte de Compras</h2>
+
+@using (Html.BeginForm("ObtenerReporte", "Reportes", FormMethod.Post))
+{
+    <div>
+        <label for="FechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="FechaInicio" name="FechaInicio" value="@Model.FechaInicio?.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div>
+        <label for="FechaFin">Fecha de Fin:</label>
+        <input type="date" id="FechaFin" name="FechaFin" value="@Model.FechaFin?.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div>
+        <button type="submit">Generar Reporte</button>
+    </div>
+}
+
+@if (Model.ReporteCompras != null && Model.ReporteCompras.Count > 0)
+{
+    <h3>Reporte de Compras</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Factura</th>
+                <th>Monto Total</th>
+                <th>Fecha de Compra</th>
+                <th>Sala</th>
+                <th>Precio Unitario</th>
+                <th>Fecha de Inicio de Función</th>
+                <th>Fecha de Fin de Función</th>
+                <th>Asientos Ocupados</th>
+                <th>Estado de Función</th>
+                <th>Película</th>
+                <th>Descripción de Película</th>
+                <th>Clasificación</th>
+                <th>Tipo de Sala</th>
+                <th>Capacidad de Sala</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ReporteCompras)
+            {
+                <tr>
+                    <td>@item.NumeroFactura</td>
+                    <td>@item.MontoTotal</td>
+                    <td>@item.FechaCompra.ToString("yyyy-MM-dd")</td>
+                    <td>@item.IdSala</td>
+                    <td>@item.PrecioUnitario</td>
+                    <td>@item.FechaInicioFuncion.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@item.FechaFinFuncion.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@item.AsientosOcupados</td>
+                    <td>@item.EstadoFuncion</td>
+                    <td>@item.NombrePelicula</td>
+                    <td>@item.DescripcionPelicula</td>
+                    <td>@item.Clasificacion</td>
+                    <td>@item.TipoSala</td>
+                    <td>@item.CapacidadSala</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron resultados para el rango de fechas seleccionado.</p>
+}

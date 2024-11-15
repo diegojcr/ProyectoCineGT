@@ -1,0 +1,63 @@
+﻿@model CineGT.Models.ReporteTransaccionesConFechasViewModel
+
+<h2>Consulta de Transacciones por Fecha</h2>
+
+<form asp-action="TransaccionesPorFecha" method="post">
+    <div class="form-group">
+        <label for="FechaInicio">Fecha de Inicio:</label>
+        <input type="datetime-local" id="FechaInicio" name="FechaInicio" class="form-control"
+                required />
+    </div>
+    <div class="form-group">
+        <label for="FechaFin">Fecha de Fin:</label>
+        <input type="datetime-local" id="FechaFin" name="FechaFin" class="form-control"
+                required />
+    </div>
+    <button type="submit" class="btn btn-primary">Consultar</button>
+</form>
+
+@if (Model.ReporteTransacciones != null && Model.ReporteTransacciones.Count > 0)
+{
+    <h3>Resultados</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Fecha Transacción</th>
+                <th>Descripción</th>
+                <th>ID Usuario</th>
+                <th>ID Compra</th>
+                <th>Factura</th>
+                <th>Monto Total</th>
+                <th>ID Cliente</th>
+                <th>Estado</th>
+                <th>Total Boletos</th>
+                <th>Fecha Función</th>
+                <th>Película</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaccion in Model.ReporteTransacciones)
+            {
+                <tr>
+                    <td>@transaccion.FechaTransaccion</td>
+                    <td>@transaccion.DescripcionTransaccion</td>
+                    <td>@transaccion.IdUsuarioTransaccion</td>
+                    <td>@transaccion.IdCompra</td>
+                    <td>@transaccion.NumeroFactura</td>
+                    <td>@transaccion.MontoTotal</td>
+                    <td>@transaccion.IdCliente</td>
+                    <td>@transaccion.EstadoCompra</td>
+                    <td>@transaccion.TotalBoletos</td>
+                    <td>@transaccion.FechaFuncion</td>
+                    <td>@transaccion.NombrePelicula</td>
+                    <td>@transaccion.PrecioFuncion</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron transacciones.</p>
+}

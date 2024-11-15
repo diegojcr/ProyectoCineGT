@@ -1,0 +1,94 @@
+﻿@model CineGT.Models.CambioAsientoViewModel
+
+
+<h2>Cambiar Asiento</h2>
+
+<form method="post">
+    <div>
+        <label for="NumeroFactura">Número de Factura:</label>
+        <input type="text" id="NumeroFactura" name="NumeroFactura" value="@Model.NumeroFactura" required />
+        <button type="submit" name="actionType" value="Buscar">Buscar</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <p style="color: red;">@ViewBag.Error</p>
+}
+
+@if (Model.Asientos != null && Model.Asientos.Count > 0)
+{
+    <h3>Asientos Asociados con la Factura</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Película</th>
+                <th>Fecha de Inicio</th>
+                <th>Fila</th>
+                <th>Columna</th>
+                <th>Sala</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asiento in Model.Asientos)
+            {
+                <tr>
+                    <td>@asiento.NombrePelicula</td>
+                    <td>@asiento.FechaInicio</td>
+                    <td>@asiento.Fila</td>
+                    <td>@asiento.Columna</td>
+                    <td>@asiento.IdSala</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Detalles para Cambiar Asiento</h3>
+    <form method="post">
+        <div>
+            <label for="FilaAnterior">Fila Actual:</label>
+            <input type="number" id="FilaAnterior" name="FilaAnterior" value="@Model.FilaAnterior" required />
+        </div>
+        <div>
+            <label for="ColumnaAnterior">Columna Actual:</label>
+            <input type="text" id="ColumnaAnterior" name="ColumnaAnterior" value="@Model.ColumnaAnterior" required />
+        </div>
+        <div>
+            <label for="PeliculaAnterior">Película Actual:</label>
+            <input type="text" id="PeliculaAnterior" name="PeliculaAnterior" value="@Model.PeliculaAnterior" required />
+        </div>
+        <div>
+            <label for="SalaAnterior">Sala Actual:</label>
+            <input type="number" id="SalaAnterior" name="SalaAnterior" value="@Model.SalaAnterior" required />
+        </div>
+        <div>
+            <label for="FechaAnterior">Fecha de la Función Actual:</label>
+            <input type="datetime-local" id="FechaAnterior" name="FechaAnterior" value="@Model.FechaAnterior.ToString("yyyy-MM-ddTHH:mm")" required />
+        </div>
+        <div>
+            <label for="FilaNueva">Nueva Fila:</label>
+            <input type="number" id="FilaNueva" name="FilaNueva" required />
+        </div>
+        <div>
+            <label for="ColumnaNueva">Nueva Columna:</label>
+            <input type="text" id="ColumnaNueva" name="ColumnaNueva" required />
+        </div>
+        <div>
+            <label for="Pelicula">Película Nueva:</label>
+            <input type="text" id="Pelicula" name="Pelicula" required />
+        </div>
+        <div>
+            <label for="IdSala">Sala Nueva:</label>
+            <input type="number" id="IdSala" name="IdSala" required />
+        </div>
+        <div>
+            <label for="FechaInicio">Fecha de la Función Nueva:</label>
+            <input type="datetime-local" id="FechaInicio" name="FechaInicio" required />
+        </div>
+        <div>
+            <label for="NumeroFactura">Número de Factura:</label>
+            <input type="text" id="NumeroFactura" name="NumeroFactura" required />
+        </div>
+        <button type="submit" name="actionType" value="Cambiar">Cambiar Asiento</button>
+    </form>
+}

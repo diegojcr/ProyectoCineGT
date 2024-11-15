@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFJlZ2lzdHJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/CambioAsiento/CambiarAsiento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtYmlvQXNpZW50b1xDYW1iaWFyQXNpZW50by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Declinar/DeclinarVenta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVjbGluYXJcRGVjbGluYXJWZW50YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2J0ZW5lclByb21lZGlvQXNpZW50b3NPY3VwYWRvc1lTZXNpb25lc1Bvck1lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Reportes/ObtenerReporte.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2J0ZW5lclJlcG9ydGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Reportes/ObtenerSesionesConAsientosOcupadosPorDebajoDelPorcentaje.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2J0ZW5lclNlc2lvbmVzQ29uQXNpZW50b3NPY3VwYWRvc1BvckRlYmFqb0RlbFBvcmNlbnRhamUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -70,8 +78,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcT2J0ZW5lclRvcDVQZWxpY3VsYXNQb3JQcm9tZWRpb0FzaWVudG9zVmVuZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Reportes/TransaccionesPorFecha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcVHJhbnNhY2Npb25lc1BvckZlY2hhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Reserva/ReservarAsientos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxSZXNlcnZhckFzaWVudG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Reserva/ReservarAsientosUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxSZXNlcnZhckFzaWVudG9zVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/diego/OneDrive - Universidad Rafael Landivar/Escritorio/ProyectoCineGT/CineGT/CineGT/Views/Shared/Error.cshtml]
